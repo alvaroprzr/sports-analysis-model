@@ -1,0 +1,50 @@
+{
+  "_comment": "Submission: E7 (configs/b2_ens_dr.json) with P(alive) replaced by the stoppage classifier g of scripts/alive_dev.py, trained on all development matches (SkillCorner rows with at least 14 detected players; DFL with the dead ball hidden, with the simulator's ball gaps and with the same gaps at positions independent of the game). P(home|alive), team swap, ball-out rule and rounding are E7's. Adopted by the rule of scripts/alive_select2.py, fixed before the classifier was trained (experiments/alive_select2.md); decoder costs (2, 12) by the zone score on all folds. Nothing tuned on BAR-ATH.",
+  "members": {
+    "E0": {
+      "weights": "models/dr/b2_final_e0.pt",
+      "steps_from": "b2e0d_5f",
+      "config": {},
+      "steps": 1380
+    },
+    "E1": {
+      "weights": "models/dr/b2_final_e1.pt",
+      "steps_from": "b2e1d_5f",
+      "config": {
+        "social": "knear"
+      },
+      "steps": 1260
+    },
+    "E2": {
+      "weights": "models/dr/b2_final_e2.pt",
+      "steps_from": "b2e2d_5f",
+      "config": {
+        "social": "pooled"
+      },
+      "steps": 1400
+    },
+    "E5": {
+      "weights": "models/dr/b2_final_e5.pt",
+      "steps_from": "b2e5d_5f",
+      "config": {
+        "change_head": true
+      },
+      "steps": 1500
+    }
+  },
+  "costs": [
+    2,
+    12.0,
+    12.0
+  ],
+  "team_swap": true,
+  "min_possession_rows": 1,
+  "ball_out": {
+    "min_out_m": 2.0,
+    "min_s": 0.3
+  },
+  "alive": {
+    "model": "models/alive/alive_g.txt",
+    "arm": "g"
+  }
+}

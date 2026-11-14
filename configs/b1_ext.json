@@ -1,0 +1,74 @@
+{
+  "_comment": "B1 reserve with the simulator calibrated on external tracking only (organisers' clarification of 03/11): src/poss/sim_external.py applied to the first three SkillCorner development matches, with domain randomisation (per-copy intensity, sim_external.dr_copy), the arm chosen on SkillCorner without those matches at three ball-visibility levels (experiments/sim_ext_select2.md); team-switch cost by the zone over three sources (experiments/b1_ext_dr_costs.md). Nothing is fitted, calibrated or chosen on BAR-ATH.",
+  "arm": "sim",
+  "calibration_refs": [
+    "J03WMX",
+    "J03WN1"
+  ],
+  "dfl_train": [
+    "J03WMX",
+    "J03WN1",
+    "J03WOH",
+    "J03WOY",
+    "J03WPY"
+  ],
+  "sc_train": [
+    "1886347",
+    "1925299",
+    "1927964",
+    "1953632",
+    "1959846",
+    "1986691",
+    "1996435",
+    "1996436",
+    "2006229",
+    "2007448",
+    "2007721",
+    "2010085",
+    "2011166",
+    "2013725",
+    "2015213",
+    "2016236",
+    "2017461"
+  ],
+  "n_degrade": 2,
+  "spread": 0.2,
+  "row_step": 2,
+  "sc_total_weight": 0.5,
+  "gbm": {
+    "n_estimators": 400,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 100,
+    "subsample": 0.7,
+    "subsample_freq": 1,
+    "colsample_bytree": 0.5,
+    "reg_lambda": 1.0,
+    "deterministic": true,
+    "num_threads": 6,
+    "verbose": -1,
+    "random_state": 0
+  },
+  "costs": [
+    3,
+    6,
+    6
+  ],
+  "simulator": "external",
+  "sim_target_sc": [
+    "1886347",
+    "1925299",
+    "1927964"
+  ],
+  "sim_variant": {},
+  "domain_randomisation": {
+    "vis": [
+      0.2,
+      1.0
+    ],
+    "tracks": [
+      0.0,
+      3.0
+    ]
+  }
+}

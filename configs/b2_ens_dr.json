@@ -1,0 +1,46 @@
+{
+  "_comment": "E7 alone, as frozen on 12 November (the submission is configs/b2_ens_dr_alive.json), with the external simulator (domain randomisation, 11 player slots per team): equal-weight average of P(alive) and P(home|alive) of E0, E1, E2, E5, each trained on all development matches for the mean of its validated steps. Decoder chosen again on the out-of-fold predictions of these models (experiments/f4d_rule.md, experiments/decoder_select.md): team-swapped inference averaged (usual rule passed); no minimum possession duration (not passed); team-switch cost 3 and stoppage cost 8 by the zone score over three sources; ball-out rule (law of the game) with min_out_m 2.0 and min_s 0.3, no source worse by more than 2 paired SE and no systematic detection error; boundary shifts not adopted. Nothing tuned on BAR-ATH.",
+  "members": {
+    "E0": {
+      "weights": "models/dr/b2_final_e0.pt",
+      "steps_from": "b2e0d_5f",
+      "config": {},
+      "steps": 1380
+    },
+    "E1": {
+      "weights": "models/dr/b2_final_e1.pt",
+      "steps_from": "b2e1d_5f",
+      "config": {
+        "social": "knear"
+      },
+      "steps": 1260
+    },
+    "E2": {
+      "weights": "models/dr/b2_final_e2.pt",
+      "steps_from": "b2e2d_5f",
+      "config": {
+        "social": "pooled"
+      },
+      "steps": 1400
+    },
+    "E5": {
+      "weights": "models/dr/b2_final_e5.pt",
+      "steps_from": "b2e5d_5f",
+      "config": {
+        "change_head": true
+      },
+      "steps": 1500
+    }
+  },
+  "costs": [
+    3,
+    8.0,
+    8.0
+  ],
+  "team_swap": true,
+  "min_possession_rows": 1,
+  "ball_out": {
+    "min_out_m": 2.0,
+    "min_s": 0.3
+  }
+}

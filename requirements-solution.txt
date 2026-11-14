@@ -1,0 +1,14 @@
+# Exact versions the submission file was produced with (Python 3.12.13, Linux x86-64, CPU only).
+# Byte-identical regeneration is only claimed for these versions: LightGBM and PyTorch results
+# can change between releases.
+#
+#   pip install -r requirements-solution.txt
+#   pip install torch==2.15.0 --index-url https://download.pytorch.org/whl/cpu   # the submission and E7; B1 does not need it
+numpy==2.5.4
+pandas==3.1.0
+scipy==1.18.1
+scikit-learn==1.9.1
+lightgbm==4.7.0
+kloppy==3.19.1
+numba==0.68.1
+llvmlite==0.50.0
